@@ -49,7 +49,9 @@
                     <div class="row">
                         <div class="col-sm-12">
                             <h2>Alarms</h2>
-                            <app-alarm></app-alarm>
+                            <div v-for="alarm in alarms">
+                                <app-alarm :alarm="alarm" :clock="timeNow"></app-alarm>
+                            </div>
                         </div>
                     </div>
                 </div>

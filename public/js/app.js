@@ -16395,7 +16395,7 @@ var app = new Vue({
 
             // compute time to add to beginning of day
             // TODO: validate input
-            var alarmOffset = app.inputHour * 3600 + app.inputMinute * 60 + app.inputSecond;
+            var alarmOffset = parseInt(app.inputHour) * 3600 + parseInt(app.inputMinute) * 60 + parseInt(app.inputSecond);
 
             var alarm = startOfDay + alarmOffset;
 
@@ -57356,8 +57356,10 @@ module.exports = Component.exports
 
 /***/ }),
 /* 167 */
-/***/ (function(module, exports) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
@@ -57366,18 +57368,40 @@ module.exports = Component.exports
 //
 //
 //
+
+var moment = __webpack_require__(0);
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    props: ['alarm', 'clock'],
+
+    data: function data() {
+        return {
+            alarmTime: moment(this.alarm * 1000).format('LTS')
+        };
+    },
+
+    watch: {
+        alarm: function alarm() {
+            this.alarmTime = moment(this.alarm * 1000).format('LTS');
+        },
+
+        clock: function clock() {
+            if (this.alarm === this.clock) {
+                console.log('Alarm going off!');
+            }
+        }
+    }
+});
 
 /***/ }),
 /* 168 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _vm._m(0)
-},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', [_c('div', {
     staticClass: "alarm-time"
-  }, [_vm._v("\n        9:00:00 am\n    ")])])
-}]}
+  }, [_vm._v("\n        " + _vm._s(_vm.alarmTime) + "\n    ")])])
+},staticRenderFns: []}
 module.exports.render._withStripped = true
 if (false) {
   module.hot.accept()
