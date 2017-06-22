@@ -57,6 +57,10 @@ const app = new Vue({
             app.inputHour = 0;
             app.inputMinute = 0;
             app.inputSecond = 0;
+        },
+
+        soundAlarm: function() {
+            this.alarmSounding = true;
         }
     },
 

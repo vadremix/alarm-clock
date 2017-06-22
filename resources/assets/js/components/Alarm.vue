@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="alarm-time">
+        <div class="alarm-time" :class="{ dismissed: dismissed }">
             {{ alarmTime }}
         </div>
     </div>
@@ -14,7 +14,8 @@
 
         data: function() {
             return {
-                alarmTime: moment(this.alarm * 1000).format('LTS')
+                alarmTime: moment(this.alarm * 1000).format('LTS'),
+                dismissed: false
             }
         },
 
@@ -25,7 +26,8 @@
 
             clock: function() {
                 if(this.alarm === this.clock) {
-                    console.log('Alarm going off!');
+                    this.$emit('alarm-trigger', true);
+                    this.dismissed = true;
                 }
             }
         }

@@ -16410,6 +16410,10 @@ var app = new Vue({
             app.inputHour = 0;
             app.inputMinute = 0;
             app.inputSecond = 0;
+        },
+
+        soundAlarm: function soundAlarm() {
+            this.alarmSounding = true;
         }
     },
 
@@ -57377,7 +57381,8 @@ var moment = __webpack_require__(0);
 
     data: function data() {
         return {
-            alarmTime: moment(this.alarm * 1000).format('LTS')
+            alarmTime: moment(this.alarm * 1000).format('LTS'),
+            dismissed: false
         };
     },
 
@@ -57388,7 +57393,8 @@ var moment = __webpack_require__(0);
 
         clock: function clock() {
             if (this.alarm === this.clock) {
-                console.log('Alarm going off!');
+                this.$emit('alarm-trigger', true);
+                this.dismissed = true;
             }
         }
     }
@@ -57400,7 +57406,10 @@ var moment = __webpack_require__(0);
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', [_c('div', {
-    staticClass: "alarm-time"
+    staticClass: "alarm-time",
+    class: {
+      dismissed: _vm.dismissed
+    }
   }, [_vm._v("\n        " + _vm._s(_vm.alarmTime) + "\n    ")])])
 },staticRenderFns: []}
 module.exports.render._withStripped = true

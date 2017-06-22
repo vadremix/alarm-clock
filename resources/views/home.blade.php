@@ -50,7 +50,7 @@
                         <div class="col-sm-12">
                             <h2>Alarms</h2>
                             <div v-for="alarm in alarms">
-                                <app-alarm :alarm="alarm" :clock="timeNow"></app-alarm>
+                                <app-alarm :alarm="alarm" :clock="timeNow" v-on:alarm-trigger="soundAlarm"></app-alarm>
                             </div>
                         </div>
                     </div>
