@@ -22,6 +22,10 @@
         watch: {
             alarm: function() {
                 this.alarmTime = moment(this.alarm * 1000).format('LTS')
+
+                if(this.alarm >= this.clock) {
+                    this.dismissed = false;
+                }
             },
 
             clock: function() {
@@ -29,6 +33,12 @@
                     this.$emit('alarm-trigger', true);
                     this.dismissed = true;
                 }
+            }
+        },
+
+        created: function() {
+            if(this.alarm <= this.clock) {
+                this.dismissed = true;
             }
         }
     }
