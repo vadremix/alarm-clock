@@ -42,7 +42,7 @@ const app = new Vue({
 
             // compute time to add to beginning of day
             // TODO: validate input
-            var alarmOffset = (app.inputHour * 3600) + (app.inputMinute * 60) + app.inputSecond;
+            var alarmOffset = (parseInt(app.inputHour) * 3600) + (parseInt(app.inputMinute) * 60) + parseInt(app.inputSecond);
 
             var alarm = startOfDay + alarmOffset;
 
