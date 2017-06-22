@@ -46,7 +46,8 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-12">
-
+                            <h2>Alarms</h2>
+                            <app-alarm></app-alarm>
                         </div>
                     </div>
                 </div>
