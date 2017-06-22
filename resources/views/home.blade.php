@@ -18,13 +18,13 @@
                     <div class="row">
                         <div class="col-sm-12">
                             <h2>Create Alarm</h2>
-                            <input class="input-time input-hour" type="text" maxlength="2" />:
-                            <input class="input-time input-minute" type="text" maxlength="2" />:
-                            <input class="input-time input-second" type="text" maxlength="2" />
-                            <label class="input-toggle-wrapper">
+                            <input class="input-time input-hour" v-model="inputHour" type="text" maxlength="2" />:
+                            <input class="input-time input-minute" v-model="inputMinute" type="text" maxlength="2" />:
+                            <input class="input-time input-second" v-model="inputSecond" type="text" maxlength="2" />
+                            <!--<label class="input-toggle-wrapper">
                                 <input class="input-toggle" type="checkbox">
                                 <span class="toggle-ampm">am / pm</span>
-                            </label>
+                            </label>-->
                             <button>Save</button>
                         </div>
                     </div>

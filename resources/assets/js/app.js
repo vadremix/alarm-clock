@@ -22,7 +22,11 @@ const app = new Vue({
 
     data: {
         timeNow: moment().unix(),
-        timeFormatted: moment().format('LTS')
+        timeFormatted: moment().format('LTS'),
+        inputHour: 0,
+        inputMinute: 0,
+        inputSecond: 0,
+        alarms: []
     },
 
     watch: {
