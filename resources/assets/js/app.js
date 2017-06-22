@@ -30,8 +30,32 @@ const app = new Vue({
     },
 
     watch: {
-        timeNow: function(newTime) {
+        timeNow: function() {
             app.timeFormatted = moment(app.timeNow * 1000).format('LTS')
+        }
+    },
+
+    methods: {
+        createAlarm: function() {
+            // get beginning of day
+            var startOfDay = moment().startOf('day').unix();
+
+            // compute time to add to beginning of day
+            // TODO: validate input
+            var alarmOffset = (app.inputHour * 3600) + (app.inputMinute * 60) + app.inputSecond;
+
+            var alarm = startOfDay + alarmOffset;
+
+            // if time has already passed today, set alarm for future by adding 24 hours
+            if(alarm < moment().unix()) {
+                alarm += 86400;
+            }
+
+            app.alarms.unshift(alarm);
+
+            app.inputHour = 0;
+            app.inputMinute = 0;
+            app.inputSecond = 0;
         }
     },
 

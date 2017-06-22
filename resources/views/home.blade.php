@@ -25,7 +25,7 @@
                                 <input class="input-toggle" type="checkbox">
                                 <span class="toggle-ampm">am / pm</span>
                             </label>-->
-                            <button>Save</button>
+                            <button @click="createAlarm">Save</button>
                         </div>
                     </div>
                 </div>
