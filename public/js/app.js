@@ -16371,7 +16371,24 @@ window.Vue = __webpack_require__(151);
 Vue.component('example', __webpack_require__(152));
 
 var app = new Vue({
-  el: '#app'
+    el: '#app',
+
+    data: {
+        timeNow: moment().unix(),
+        timeFormatted: moment().format('LTS')
+    },
+
+    watch: {
+        timeNow: function timeNow(newTime) {
+            app.timeFormatted = moment(app.timeNow * 1000).format('LTS');
+        }
+    },
+
+    mounted: function mounted() {
+        setInterval(function () {
+            app.timeNow = moment().unix();
+        }, 1000);
+    }
 });
 
 /***/ }),

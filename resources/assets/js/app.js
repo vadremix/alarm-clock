@@ -18,5 +18,22 @@ window.Vue = require('vue');
 Vue.component('example', require('./components/Example.vue'));
 
 const app = new Vue({
-    el: '#app'
+    el: '#app',
+
+    data: {
+        timeNow: moment().unix(),
+        timeFormatted: moment().format('LTS')
+    },
+
+    watch: {
+        timeNow: function(newTime) {
+            app.timeFormatted = moment(app.timeNow * 1000).format('LTS')
+        }
+    },
+
+    mounted: function() {
+        setInterval(function() {
+            app.timeNow = moment().unix();
+        }, 1000);
+    }
 });

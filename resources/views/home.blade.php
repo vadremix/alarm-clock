@@ -35,7 +35,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-12">
-                            <span class="clock">12:07:38 pm</span>
+                            <span v-cloak class="clock">@{{ timeFormatted }}</span>
                         </div>
                     </div>
                 </div>
