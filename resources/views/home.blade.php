@@ -17,12 +17,13 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-12">
-                            <input class="input-hour" type="number" maxlength="2" />:
-                            <input class="input-minute" type="number" maxlength="2" />:
-                            <input class="input-second" type="number" maxlength="2" />
+                            <h2>Create Alarm</h2>
+                            <input class="input-time input-hour" type="text" maxlength="2" />:
+                            <input class="input-time input-minute" type="text" maxlength="2" />:
+                            <input class="input-time input-second" type="text" maxlength="2" />
                             <label class="input-toggle-wrapper">
                                 <input class="input-toggle" type="checkbox">
-                                <div class="toggle-ampm">am / pm</div>
+                                <span class="toggle-ampm">am / pm</span>
                             </label>
                             <button>Save</button>
                         </div>
@@ -35,6 +36,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-12">
+                            <h2>Clock</h2>
                             <span v-cloak class="clock">@{{ timeFormatted }}</span>
                         </div>
                     </div>

@@ -11,3 +11,21 @@
 [v-cloak] {
   display: none;
 }
+
+section {
+  text-align: center;
+}
+
+.input-time {
+  width: 25px;
+  padding: 0 4px;
+  background-color: #feffef;
+  border: none;
+  border-bottom: solid 1px #8c8c8c;
+}
+
+.clock {
+  font-size: 28px;
+  font-family: monospace;
+  text-transform: lowercase;
+}
