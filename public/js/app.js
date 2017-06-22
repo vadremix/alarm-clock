@@ -16379,7 +16379,8 @@ var app = new Vue({
         inputHour: 0,
         inputMinute: 0,
         inputSecond: 0,
-        alarms: []
+        alarms: [],
+        alarmSounding: false
     },
 
     watch: {

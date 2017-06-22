@@ -37,7 +37,7 @@
                     <div class="row">
                         <div class="col-sm-12">
                             <h2>Clock</h2>
-                            <span v-cloak class="clock">@{{ timeFormatted }}</span>
+                            <span v-cloak class="clock" :class="{ danger: alarmSounding }">@{{ timeFormatted }}</span>
                         </div>
                     </div>
                 </div>
